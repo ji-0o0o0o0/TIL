@@ -9,16 +9,16 @@ public class Car {
     //<필드영역>
     //1. 고유데이터
     String company;
-    String model;
+    String model ="Gv80";
     String color;
     double price;
     //2. 상태 데이터
     double speed;
     char gear;//기어 상태 : P R N D
-    boolean lights;
+    boolean lights=true;
 
     //객체데이터 영역
-    Tire tire;
+    Tire tire= new Tire();
     Door door;
     Handle handle;
 
@@ -36,7 +36,8 @@ public class Car {
     //gasPedal
     //input : kmh
     //output : speed
-    double gasPedal(double kmh){
+    double gasPedal(double kmh,char type){
+        changeGear(type);
         speed = kmh;
         return speed;
     };
@@ -67,6 +68,13 @@ public class Car {
     //output : x
     void  horn(){
         System.out.println("빠아아아아앙");
+    }
+
+    //자도차 속도 ..가변길이 메서드
+    void  carSpeed(double ...speeds){
+        for (double v: speeds) {
+            System.out.println("v: "+v);
+        }
     }
 
 }
