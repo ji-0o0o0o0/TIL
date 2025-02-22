@@ -36,7 +36,7 @@ public class Main {
 
         // 자동차 핸들 인스턴스 참조형 변수에 저장
         Handle carHandle = car.handle;
-        System.out.println("carHandle.company = " + carHandle.company);
+        System.out.println("carHandle.company = " + carHandle.company+"\n");
         System.out.println("carHandle.type = " + carHandle.type + "\n");
 
         // 자동차 핸들 조작해보기
