@@ -12,7 +12,7 @@
     >   - IP
     > 4. Network Interface Layer
     >   - Ethernet 
-- 웹 브라우저와 웹 서버가 통신할 떄 사용
+- 웹 브라우저와 웹 서버가 통신할 때 사용
 - 예)
   - Client -> Request -> Server
   - Client <- Response <- Server
@@ -81,12 +81,63 @@
 7. 브라우저 화면 출력
 
 ### 면접 질문
-Q. HTTP 특징은?</br>
+Q. HTTP 특징은?
+<details>
+    <summary>정답</summary>
 A. HTTP는 Stateless한 프로토콜로, 각 요청이 독립적이다. 상태 유지를 위해 쿠키/세션/JWT를 사용한다.
 또한, 요청/응답 구조로 동작한다.
+</details>
+
+</br>
 
 Q. HTTP와 HTTPS의 차이는?
-A. 
+<details>
+    <summary>정답</summary>
+
+</details>
+
+</br>
 
 Q. Stateless의 단점과 해결 방법은?
-A.
+<details>
+    <summary>정답</summary>
+
+</details>
+
+</br>
+
+
+### 💡 **실무 연결**
+- HTTP Stateless 특성 때문에 
+  로그인 유지를 위해 세션/Redis 같은 별도 저장소가 필요함
+
+</br>
+
+## 2. GET vs POST
+|  | GET | POST |
+|:---:|:---:|:---:|
+| 목적 | 데이터 조회 | 데이터 전송/생성|
+|데이터 위치|URL(쿼리스트링)|Body|
+|보안|URL 노출|Body에 숨겨짐|
+|멱등성| O|X|
+|캐싱| O|X|
+|히스토리 기록| O(브라우저)|X|
+|길이제한| O|거의없음|
+
+### 멱등성
+같은 요청을 여러번 해도 결과가 같은 성질
+- GET /users/1 → 몇 번 해도 같은 유저 조회 → 멱등성 O
+- POST /users → 할 때마다 새로운 유저 생성 → 멱등성 X
+
+### 면접 질문
+Q. GET, POST 차이?</br>
+<details>
+    <summary>정답</summary>
+A. GET은 데이터를 URL에 담아 사용하고, POST는 데이터를 Body에 담아 전송/생성할떄 사용</br>
+GET은 멱등성 있어 같은 요청을 하면 결과 같지만 POST는 요청마다 새로운 결과 생성
+</details>
+
+
+### 💡 실무 연결: 
+- 결제/로그인처럼 민감한 데이터는 URL 노출을 
+막기 위해 POST를 사용. 단순 조회는 GET으로 캐싱 이점 활용.
